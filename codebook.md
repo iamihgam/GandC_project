@@ -8,7 +8,7 @@ actrain = the contents of the activities files of the train data read # train me
 test = actual test data
 train = actual train data
   ```
-  # Task 2
+# Task 2
   ```
   testcomb = column bind data of subject, activities and actual data of test folder
   traincomb = column bind data of subject, activities and actual data of the train folder
@@ -31,7 +31,7 @@ train = actual train data
  datamelt = melted data
  datacast = casted data
  
- # Task 7
+ #Task 7
  Output = the final output data
 
   
