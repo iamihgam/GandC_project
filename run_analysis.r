@@ -1,11 +1,12 @@
 
-Task 1: Download the file and unzip it.
+#Task 1: Download the file and unzip it.
+
 ```
-> url <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
-> f<- file.path(getwd(), "project.zip")
-> download.file(url, f, method="curl")
-> unzip(f)
-> list.files()
+url <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
+f<- file.path(getwd(), "project.zip")
+download.file(url, f, method="curl")
+unzip(f)
+list.files()
 ```
 
 
