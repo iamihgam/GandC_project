@@ -39,12 +39,15 @@ ftrain <- file.path(f, "train", "X_train.txt")
 train <- read.table(ftrain)
 
 Task 2: 
-colnames(actest) <- "activities"
+# columns are named
+>colnames(actest) <- "activities"
 > colnames(subtest) <- "subject"
 > colnames(actrain) <- "activities"
 > colnames(subtrain) <- "subject"
+# files of each folder is combined using cbind
 > testcomb <- cbind(subtest, actest, test)
 > traincomb <- cbind(subtrain, actrain, train)
+# final binding rowbind to produce single dataset
 > data <- rbind(testcomb, traincomb)
 
 Task 3: extracting only the mean and standard deviation:
@@ -53,12 +56,12 @@ Task 3: extracting only the mean and standard deviation:
 > meanstd <- feau[grepl("mean|std", feau$V2),]
 > colnames(meanstd) <- c("code", "names")
 > temp <- data[,seq(3, ncol(data))]
->meanstd <-  temp[meanstd$code]
+>meanstd <-  temp[meanstd$code]# this data negates first two columns of subject and activity, however , it could be included and it should not be a big deal
 
 Task 4 : Uses descriptive activity names to name the activities in the data set
 label <- read.table(file.path(getwd(), "activity_labels.txt"))
 colnames(label) <- c("activity_num", "activity_name")
-data <- merge(label, data, by.y = "activities", by.x= "activity_num", all=TRUE)
+data <- merge(label, data, by.y = "activities", by.x= "activity_num", all=TRUE)#merging by activity number
 
 Task 5:Appropriately labels the data set with descriptive variable names.
 varname <- as.character(feau$V2)
@@ -66,7 +69,7 @@ varname <- as.character(feau$V2)
 > test1 <- cbind(subtest, actest)
 > train1 <- cbind(subtrain, actrain)
 > subact <- rbind(test1, train1)
-> datavar <- cbind(data$activity_num, data$activity_name,data$subject, temp)
+> datavar <- cbind(data$activity_num, data$activity_name,data$subject, temp)# combined data with keys and values
 > colnames(datavar)[1:3] <- c("activity_num", "activity_name", "subject")
 
 Task6:
@@ -77,7 +80,7 @@ library(reshape2)
 library(tidyr)
 data <- tbl_df(datavar)
 datamelt <- melt(data, id=c("activity_num"."activity_name", "subject"), value = data$tBodyAcc-mean()-X:data$angle(Z,gravityMean))
-datacast <- dcast(datagroup, activity_name+subject~variable, mean)
+datacast <- dcast(datagroup, activity_name+subject~variable, mean)# final data which has mean for each subject and each activity_name 
 
 Task 7:export the file as text file  to current working  directory and up for uploading
 
