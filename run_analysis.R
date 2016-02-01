@@ -73,7 +73,10 @@ data <- tbl_df(datavar)
 datamelt <- melt(data, id=c("activity_num"."activity_name", "subject"), value = data$tBodyAcc-mean()-X:data$angle(Z,gravityMean))
 datacast <- dcast(datagroup, activity_name+subject~variable, mean)
 
-Task 7:
+Task 7:export the file as text file  to current working  directory and up for uploading
+
+output<- write.table(datacast, file="G&Cproject.txt", row.names=FALSE)
+
 
 
 
