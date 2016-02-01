@@ -1,10 +1,15 @@
 
 Task 1: Download the file and unzip it.
+```
 > url <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 > f<- file.path(getwd(), "project.zip")
 > download.file(url, f, method="curl")
 > unzip(f)
 > list.files()
+```
+
+
+
 1] "activity_labels.txt" "features_info.txt"   "features.txt"        "README.txt"          "test"               
 [6] "train"
 >list.files("train")
