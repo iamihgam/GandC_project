@@ -52,9 +52,10 @@ Task 3: extracting only the mean and standard deviation:
 Task 4 : Uses descriptive activity names to name the activities in the data set
 label <- read.table(file.path(getwd(), "activity_labels.txt"))
 colnames(label) <- c("activity_num", "activity_name")
+data <- merge(label, data, by.y = "activities", by.x= "activity_num", all=TRUE)
 
 Task 5:Appropriately labels the data set with descriptive variable names.
-data <- merge(label, data, by.y = "activities", by.x= "activity_num", all=TRUE)
+
 
 
 
