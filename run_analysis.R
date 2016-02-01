@@ -55,6 +55,25 @@ colnames(label) <- c("activity_num", "activity_name")
 data <- merge(label, data, by.y = "activities", by.x= "activity_num", all=TRUE)
 
 Task 5:Appropriately labels the data set with descriptive variable names.
+varname <- as.character(feau$V2)
+> colnames(temp) <- varname
+> test1 <- cbind(subtest, actest)
+> train1 <- cbind(subtrain, actrain)
+> subact <- rbind(test1, train1)
+> datavar <- cbind(data$activity_num, data$activity_name,data$subject, temp)
+> colnames(datavar)[1:3] <- c("activity_num", "activity_name", "subject")
+
+Task6:
+#From the data set in step 4, creates a second, 
+#independent tidy data set with the average of each variable for each activity and each subject.
+library(dplyr)
+library(reshape2)
+library(tidyr)
+data <- tbl_df(datavar)
+datamelt <- melt(data, id=c("activity_num"."activity_name", "subject"), value = data$tBodyAcc-mean()-X:data$angle(Z,gravityMean))
+datacast <- dcast(datagroup, activity_name+subject~variable, mean)
+
+Task 7:
 
 
 
